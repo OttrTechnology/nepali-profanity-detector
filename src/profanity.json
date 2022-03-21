@@ -1,7 +1,75 @@
 [
   {
-    "value": [
-      "chaak"
+    "value": "bhalu",
+    "type": [
+      "insult"
+    ]
+  },
+  {
+    "value": "chaak ko pwal",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "condo",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "geda",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "gu",
+    "type": [
+      "inappropriate"
+    ]
+  },
+  {
+    "value": "jantha",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "lado",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "muji",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "puti",
+    "type": [
+      "sexual"
+    ]
+  },
+  {
+    "value": "randi",
+    "type": [
+      "insult"
+    ]
+  },
+  {
+    "value": "saley",
+    "type": [
+      "blasphemy",
+      "inappropriate"
+    ]
+  },
+  {
+    "value": "turi",
+    "type": [
+      "sexual"
     ]
   }
 ]

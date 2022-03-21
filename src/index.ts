@@ -1,4 +1,5 @@
 import whitelist from "./whitelist.json";
+import profanities from "./profanity.json";
 import { sanitizeAccents, sanitizeLeetspeak } from "./utils";
 
 enum Behavior {
@@ -21,8 +22,12 @@ const defaultOptions = {
 };
 
 export const hasProfane = (text: string, options?: Options): boolean => {
-  const { includeAccents, includeLeetspeak, trimSymbols, behavior } =
-    Object.assign(defaultOptions, options);
+  const {
+    includeAccents,
+    includeLeetspeak,
+    trimSymbols,
+    behavior,
+  } = Object.assign(defaultOptions, options);
 
   let interimText = text.toLowerCase();
 
@@ -39,12 +44,10 @@ export const hasProfane = (text: string, options?: Options): boolean => {
   if (includeLeetspeak) interimText = sanitizeLeetspeak(interimText);
 
   if (trimSymbols) interimText = interimText.replace(/[\W_]+/g, "");
-  
+
   let hasProfane = false;
 
-  
+  hasProfane = profanities.some(({ value }) => new RegExp(value, "gi").test(interimText));
 
   return hasProfane;
 };
-
-hasProfane("muji store", { includeLeetspeak: true });
