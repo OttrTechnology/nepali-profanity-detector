@@ -1,13 +1,14 @@
 {
   "name": "nepali-profanity-detector",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "prebuild": "rimraf dist",
     "build": "tsc",
-    "clean": "rimraf dist && rimraf index.js && rimraf index.d.ts",
     "prepublishOnly": "npm test && rollup -c",
-    "prepare": "npm run clean && npm run build",
+    "prepare": "npm run build",
+    "postpublish": "rimraf index.d.ts && rimraf index.js",
     "start": "ts-node-dev --respawn --transpile-only ./src",
     "test": "jest"
   },
@@ -17,10 +18,14 @@
     "nepali profanity filter"
   ],
   "author": "Ottr Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OttrTechnology/nepali-profanity-detector"
+  },
   "license": "ISC",
+  "module": "dist/index.js",
   "files": [
-    "index.js",
-    "index.d.ts"
+    "dist"
   ],
   "devDependencies": {
     "@types/jest": "^27.4.1",
