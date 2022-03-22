@@ -1,6 +1,9 @@
 import whitelist from "./whitelist.json";
 import profanities from "./profanity.json";
-import { sanitizeAccents, sanitizeLeetspeak } from "./utils";
+import { 
+  sanitizeAccents, 
+  // sanitizeLeetspeak
+ } from "./utils";
 
 export enum Behavior {
   THROW_ERR = "THROW_ERR",
@@ -11,7 +14,7 @@ type BehaviorType = `${Behavior}`;
 
 interface Options {
   includeAccents?: boolean;
-  includeLeetspeak?: boolean;
+  // includeLeetspeak?: boolean;
   trimSymbols?: boolean;
   behavior?: Behavior | BehaviorType;
   error?: Error;
@@ -19,7 +22,7 @@ interface Options {
 
 const defaultOptions = {
   includeAccents: true,
-  includeLeetspeak: false,
+  // includeLeetspeak: false,
   trimSymbols: true,
   behavior: Behavior.BOOLEAN,
   error: new Error("Nepali profanity detected"),
@@ -28,7 +31,7 @@ const defaultOptions = {
 export const hasProfane = (text: string, options?: Options): boolean => {
   const {
     includeAccents,
-    includeLeetspeak,
+    // includeLeetspeak,
     trimSymbols,
     behavior,
     error,
@@ -46,7 +49,7 @@ export const hasProfane = (text: string, options?: Options): boolean => {
 
   if (includeAccents) interimText = sanitizeAccents(interimText);
 
-  if (includeLeetspeak) interimText = sanitizeLeetspeak(interimText);
+  // if (includeLeetspeak) interimText = sanitizeLeetspeak(interimText);
 
   if (trimSymbols) interimText = interimText.replace(/[\W_]+/g, "");
 
