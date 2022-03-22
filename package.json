@@ -1,6 +1,6 @@
 {
   "name": "nepali-profanity-detector",
-  "version": "1.0.4",
+  "version": "1.2.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -13,11 +13,20 @@
     "test": "jest"
   },
   "keywords": [
+    "nepali",
     "nepali profanity detector",
     "nepali profanity",
-    "nepali profanity filter"
+    "nepali profanity filter",
+    "nepali bad words",
+    "nepali swear words",
+    "bad words",
+    "profanity",
+    "curse",
+    "swear",
+    "obscene",
+    "np"
   ],
-  "author": "Ottr Technology",
+  "author": "Rubek Joshi",
   "repository": {
     "type": "git",
     "url": "https://github.com/OttrTechnology/nepali-profanity-detector"
