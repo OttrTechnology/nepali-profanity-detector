@@ -3,7 +3,7 @@ Detect Nepali profane words with configurable options.
 
 ## Install
 ```
-npm i nepali-date-converter
+npm i nepali-profanity-detector
 ```
 
 ## Usage
