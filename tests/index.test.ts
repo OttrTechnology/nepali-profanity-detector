@@ -16,7 +16,19 @@ test("profane with accents", () => {
   expect(hasProfane("ḿüjį")).toBe(true);
 });
 
+test("profane with custom whitelisted word", () => {
+  expect(hasProfane("muji", { whitelist: ["muji"] })).toBe(false);
+});
+
+test("profane with custom blacklisted word", () => {
+  expect(hasProfane("test", { blacklist: ["test"] })).toBe(true);
+});
+
 test("profane with throw behaviour", () => {
+  expect(() =>
+    hasProfane("muji", { behavior: Behavior.THROW_ERR })
+  ).toThrowError();
+
   expect(() => hasProfane("muji", { behavior: "THROW_ERR" })).toThrowError();
 });
 

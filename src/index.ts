@@ -1,4 +1,4 @@
-import whitelist from "./whitelist.json";
+import internalWhitelist from "./whitelist.json";
 import profanities from "./profanity.json";
 import { 
   sanitizeAccents, 
@@ -18,6 +18,8 @@ interface Options {
   trimSymbols?: boolean;
   behavior?: Behavior | BehaviorType;
   error?: Error;
+  whitelist?: string[];
+  blacklist?: string[];
 }
 
 const defaultOptions = {
@@ -26,6 +28,8 @@ const defaultOptions = {
   trimSymbols: true,
   behavior: Behavior.BOOLEAN,
   error: new Error("Nepali profanity detected"),
+  whitelist: [],
+  blacklist: []
 };
 
 export const hasProfane = (text: string, options?: Options): boolean => {
@@ -35,17 +39,20 @@ export const hasProfane = (text: string, options?: Options): boolean => {
     trimSymbols,
     behavior,
     error,
+    whitelist,
+    blacklist
   } = Object.assign(defaultOptions, options);
 
   let interimText = text.toLowerCase();
 
-  if (whitelist.length)
-    whitelist.forEach((whitelistedValue) => {
+  if (internalWhitelist.length) {
+    internalWhitelist.concat(whitelist).forEach((whitelistedValue) => {
       interimText = interimText.replace(
         new RegExp(whitelistedValue, "gi"),
         "whitelisted"
       );
     });
+  }
 
   if (includeAccents) interimText = sanitizeAccents(interimText);
 
@@ -55,7 +62,7 @@ export const hasProfane = (text: string, options?: Options): boolean => {
 
   let hasProfane = false;
 
-  hasProfane = profanities.some(({ value }) =>
+  hasProfane = profanities.concat(blacklist).some(({ value }) =>
     new RegExp(value, "gi").test(interimText)
   );
 
