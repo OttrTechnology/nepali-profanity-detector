@@ -44,8 +44,8 @@ import { hasProfane, Behavior } from "nepali-profanity-detector";
 // throws error
 hasProfane("muji", { behavior: Behavior.THROW_ERR });
 
-// returns boolean
-hasProfane("muji", { behavior: Behavior.BOOLEAN });
+// returns boolean, also default behavior so you can omit behavior option
+hasProfane("muji", { behavior: Behavior.RETURN_BOOLEAN });
 ```
 
 ### `options`
@@ -54,7 +54,7 @@ hasProfane("muji", { behavior: Behavior.BOOLEAN });
 | ---------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | `includeAccents` | Allows accents like `ä` to be interpreted as `a`.                                              | `true`                                   |
 | `trimSymbols`    | Removes any non-alphanumeric characters. For eg. `m.u.j.i` will be interpreted as `muji`.      | `true`                                   |
-| `behavior`       | Change whether the function should return boolean or throw error if profanity is detected.     | `Behavior.BOOLEAN`                       |
+| `behavior`       | Change whether the function should return boolean or throw error if profanity is detected.     | `Behavior.RETURN_BOOLEAN`                       |
 | `error`          | Pass custom error to be thrown **IF** behavior is set to `"THROW_ERR"` or `Behavior.THROW_ERR` | `new Error("Nepali profanity detected")` |
 | `blacklist`      | Pass your custom profane words in an array of strings.                                         | []                                       |
 | `whitelist`      | Pass your custom words to be ignored when detecting profane.                                   | []                                       |

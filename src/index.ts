@@ -7,7 +7,7 @@ import {
 
 export enum Behavior {
   THROW_ERR = "THROW_ERR",
-  BOOLEAN = "BOOLEAN",
+  RETURN_BOOLEAN = "RETURN_BOOLEAN",
 }
 
 type BehaviorType = `${Behavior}`;
@@ -26,7 +26,7 @@ const defaultOptions = {
   includeAccents: true,
   // includeLeetspeak: false,
   trimSymbols: true,
-  behavior: Behavior.BOOLEAN,
+  behavior: Behavior.RETURN_BOOLEAN,
   error: new Error("Nepali profanity detected"),
   whitelist: [],
   blacklist: []
