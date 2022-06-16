@@ -62,8 +62,8 @@ export const hasProfane = (text: string, options?: Options): boolean => {
 
   let hasProfane = false;
 
-  hasProfane = profanities.concat(blacklist).some(({ value }) =>
-    new RegExp(value, "gi").test(interimText)
+  hasProfane = profanities.concat(blacklist.map(i => ({value: i, type: ["n/a"]}))).some(({ value }) =>
+    new RegExp(`\\b${value}\\b`, "gi").test(interimText)
   );
 
   if (behavior === Behavior.THROW_ERR) throw error;
